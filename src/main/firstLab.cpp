@@ -7,47 +7,94 @@
 //============================================================================
 
 #include <iostream>
+#include <unistd.h>
+#include <vector>
+#include <fstream>
 #include <string>
 
-#include "../headers/tasks.h"
+#include "CylinderCapacity.cpp"
+#include "TriangleSquare.cpp"
+#include "Visit.cpp"
+#include "Purchase.cpp"
+#include "VerstToKm.cpp"
+#include "PoundsToKg.cpp"
+#include "Operation.h"
 
 using namespace std;
 
-int main() {
-	int command, resultCode = 0;
-	string input = "Please choose program of lab (1-6)";
+void printHelp();
 
-	cout << input << endl;
-	cin >> command;
+int main(int argc, char *argv[]) {
+	const char *Options = "h?ctpvmk";
 
-	switch (command) {
-	case 1:
-		resultCode = firstTask();
-		break;
-	case 2:
-		resultCode = secondTask();
-		break;
-	case 3:
-		resultCode = thirdTask();
-		break;
-	case 4:
-		resultCode = fourthTask();
-		break;
-	case 5:
-		resultCode = fifthTask();
-		break;
-	case 6:
-		resultCode = sixthTask();
-		break;
-	default:
-		cout << "Error: unexpected command value [" << command << "]" << endl;
+	double result;
+
+	Operation *operation;
+	CylinderCapacity cylinderCapacity;
+	TriangleSquare triangleSquare;
+	Purchase purchase;
+	Visit visit;
+	VerstToKm verst;
+	PoundsToKg pounds;
+
+	int c = getopt(argc, argv, Options);
+	if (c != -1) {
+		switch (c) {
+		case '?':
+		case 'h':
+			printHelp();
+			return EXIT_SUCCESS;
+			break;
+		case 'c':
+			operation = &cylinderCapacity;
+			break;
+		case 't':
+			operation = &triangleSquare;
+			break;
+		case 'p':
+			operation = &purchase;
+			break;
+		case 'v':
+			operation = &visit;
+			break;
+		case 'm':
+			operation = &verst;
+			break;
+		case 'k':
+			operation = &pounds;
+			break;
+		default:
+			cout << "No operation was selected" << endl
+					<< "Use -h to see available operations" << endl;
+		}
+	} else {
+		cout << "No operation was selected" << endl
+				<< "Use -h to see available operations" << endl;
 		return EXIT_FAILURE;
 	}
 
-	if (resultCode) {
-		cout << "Error while executing process" << endl;
+	for (int i = 0; i < operation->getArgsCount(); i++) {
+		operation->nextArg();
+	}
+
+	result = operation->calculateResult();
+	if (result == NULL) {
 		return EXIT_FAILURE;
 	}
+
+	cout << "Result is " << result << endl;
 
 	return EXIT_SUCCESS;
+}
+
+void printHelp() {
+	string help;
+	ifstream helpFile("help", ios_base::in);
+
+	if (helpFile.is_open()) {
+		cout << helpFile.rdbuf();
+		helpFile.close();
+	} else {
+		cout << "Unable to open help file" << endl;
+	}
 }

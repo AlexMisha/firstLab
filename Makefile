@@ -1,6 +1,6 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
 
-OBJS =		firstLab.o commonUtil.o firstTask.o secondTask.o thirdTask.o fourthTask.o fifthTask.o sixthTask.o
+OBJS =		firstLab.o Argument.o Operation.o CylinderCapacity.o TriangleSquare.o Purchase.o Visit.o VerstToKm.o PoundsToKg.o
 
 LIBS =
 
@@ -10,7 +10,7 @@ $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 all:
-	g++ src/main/firstLab.cpp src/main/commonUtil.cpp src/main/firstTask.cpp src/main/secondTask.cpp src/main/thirdTask.cpp src/main/fourthTask.cpp src/main/fifthTask.cpp src/main/sixthTask.cpp -o firstLab
+	g++ src/main/firstLab.cpp src/main/Argument.cpp src/main/Operation.cpp src/main/CylinderCapacity.cpp src/main/TriangleSquare.cpp src/main/Purchase.cpp src/main/Visit.cpp src/main/VerstToKm.cpp src/main/PoundsToKg.cpp -o firstLab
 
 clean:
 	rm -f $(OBJS) $(TARGET)
