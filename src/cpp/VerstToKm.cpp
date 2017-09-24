@@ -5,15 +5,14 @@
  *      Author: micha
  */
 
-#include "../includes/VerstToKm.h"
+#include "VerstToKm.h"
 
 bool VerstToKm::validateArgs() {
 	return true;
 }
 
-double* VerstToKm::calculateResult() {
-	result = this->getArguments()[0].getValue() * 1.0668;
-	return &result;
+double VerstToKm::calculateResult() {
+	return this->arguments[0] * 1.0668;
 }
 
 int VerstToKm::getArgsCount() {

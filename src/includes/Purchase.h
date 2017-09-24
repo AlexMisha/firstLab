@@ -13,8 +13,7 @@
 class Purchase: public Operation {
 public:
 	int getArgsCount();
-	bool validateArgs();
-	double* calculateResult();
+	double calculateResult();
 };
 
 #endif /* SRC_INCLUDES_PURCHASE_H_ */

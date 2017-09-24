@@ -13,7 +13,7 @@
 class PoundsToKg: public Operation {
 public:
 	bool validateArgs();
-	double* calculateResult();
+	double calculateResult();
 	int getArgsCount();
 };
 

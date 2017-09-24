@@ -7,30 +7,16 @@
 
 #include <iostream>
 
-#include "../includes/TriangleSquare.h"
+#include "TriangleSquare.h"
 
 using namespace std;
 
-bool TriangleSquare::validateArgs() {
-	for (int i = 0; i < this->getArguments().size(); i++) {
-		if (this->getArguments()[i].getValue() < 0) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-double* TriangleSquare::calculateResult() {
+double TriangleSquare::calculateResult() {
 	if (!validateArgs()) {
-		cout << "Arguments must not be less than null" << endl;
-		return nullptr;
+		throw "Arguments must not be less than null";
 	}
 
-	result = 0.5 * this->getArguments()[0].getValue()
-			* this->getArguments()[1].getValue();
-
-	return &result;
+	return 0.5 * this->arguments[0] * this->arguments[1];
 }
 
 int TriangleSquare::getArgsCount() {

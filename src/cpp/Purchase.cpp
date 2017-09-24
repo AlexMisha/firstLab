@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "../includes/Purchase.h"
+#include "Purchase.h"
 
 using namespace std;
 
@@ -15,26 +15,11 @@ int Purchase::getArgsCount() {
 	return 4;
 }
 
-bool Purchase::validateArgs() {
-	for (int i = 0; i < this->getArguments().size(); i++) {
-		if (this->getArguments()[i].getValue() < 0) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-double* Purchase::calculateResult() {
+double Purchase::calculateResult() {
 	if (!validateArgs()) {
-		cout << "Arguments must not be less than null" << endl;
-		return nullptr;
+		throw "Arguments must not be less than null";
 	}
 
-	result = (this->getArguments()[0].getValue()
-			+ this->getArguments()[1].getValue())
-			* (this->getArguments()[2].getValue()
-					+ this->getArguments()[3].getValue());
-
-	return &result;
+	return (this->arguments[0] + this->arguments[1])
+			* (this->arguments[2] + this->arguments[3]);
 }

@@ -12,8 +12,7 @@
 
 class TriangleSquare: public Operation {
 public:
-	bool validateArgs();
-	double* calculateResult();
+	double calculateResult();
 	int getArgsCount();
 };
 

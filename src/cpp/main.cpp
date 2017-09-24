@@ -12,13 +12,13 @@
 #include <fstream>
 #include <string>
 
-#include "../includes/TriangleSquare.h"
-#include "../includes/Visit.h"
-#include "../includes/VerstToKm.h"
-#include "../includes/PoundsToKg.h"
-#include "../includes/CylinderCapacity.h"
-#include "../includes/Purchase.h"
-#include "../includes/Operation.h"
+#include "TriangleSquare.h"
+#include "Visit.h"
+#include "VerstToKm.h"
+#include "PoundsToKg.h"
+#include "CylinderCapacity.h"
+#include "Purchase.h"
+#include "Operation.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ void printHelp();
 int main(int argc, char *argv[]) {
 	const char *Options = "h?ctpvmk";
 
-	double *result;
+	double result;
 
 	Operation *operation;
 
@@ -66,13 +66,12 @@ int main(int argc, char *argv[]) {
 		operation->nextArg();
 	}
 
-	result = operation->calculateResult();
-	if (result == nullptr) {
-		delete operation;
-		return EXIT_FAILURE;
+	try {
+		result = operation->calculateResult();
+		cout << "Result is " << result << endl;
+	} catch (char const* error) {
+		cout << error << endl;
 	}
-
-	cout << "Result is " << *result << endl;
 
 	delete operation;
 	return EXIT_SUCCESS;

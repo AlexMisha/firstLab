@@ -14,7 +14,7 @@ class Visit: public Operation {
 public:
 	bool validateArgs();
 	int getArgsCount();
-	double* calculateResult();
+	double calculateResult();
 };
 
 #endif /* SRC_INCLUDES_VISIT_H_ */

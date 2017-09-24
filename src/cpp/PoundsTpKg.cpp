@@ -5,15 +5,14 @@
  *      Author: micha
  */
 
-#include "../includes/PoundsToKg.h"
+#include "PoundsToKg.h"
 
 bool PoundsToKg::validateArgs() {
 	return true;
 }
 
-double* PoundsToKg::calculateResult() {
-	result = this->getArguments()[0].getValue() * 0.4059;
-	return &result;
+double PoundsToKg::calculateResult() {
+	return this->arguments[0] * 0.4059;
 }
 
 int PoundsToKg::getArgsCount() {

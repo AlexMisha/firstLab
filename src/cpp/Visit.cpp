@@ -7,37 +7,31 @@
 
 #include <iostream>
 
-#include "../includes/Visit.h"
+#include "Visit.h"
 
 using namespace std;
 
 bool Visit::validateArgs() {
-	for (int i = 0; i < this->getArguments().size(); i++) {
-		if (this->getArguments()[i].getValue() < 0) {
+	for (int i = 0; i < this->arguments.size(); i++) {
+		if (this->arguments[i] < 0) {
 			return false;
 		}
 	}
 
-	if (this->getArguments()[1].getValue() == 0.0) {
+	if (this->arguments[1] == 0.0) {
 		return false;
 	}
 
 	return true;
 }
 
-double* Visit::calculateResult() {
+double Visit::calculateResult() {
 	if (!validateArgs()) {
-		cout
-				<< "Arguments must not be less than null and second argument must not be equal to zero"
-				<< endl;
-		return nullptr;
+		throw "Arguments must not be less than null and second argument must not be equal to zero";
 	}
 
-	result = (this->getArguments()[0].getValue()
-			* (this->getArguments()[1].getValue() / 100.0))
-			* this->getArguments()[2].getValue();
-
-	return &result;
+	return (this->arguments[0] * (this->arguments[1] / 100.0))
+			* this->arguments[2];
 }
 
 int Visit::getArgsCount() {

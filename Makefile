@@ -10,7 +10,7 @@ $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 all:
-	g++ src/cpp/*.cpp -o firstLab
+	g++ src/cpp/*.cpp -I src/includes/ -o firstLab
 
 clean:
 	rm -f $(OBJS) $(TARGET)

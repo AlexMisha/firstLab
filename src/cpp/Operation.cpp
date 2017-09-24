@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "../includes/Operation.h"
+#include "Operation.h"
 
 using namespace std;
 
@@ -24,10 +24,15 @@ void Operation::nextArg() {
 	cout << "Type next parameter" << endl;
 	cin >> arg;
 
-	Argument member(arg);
-	this->arguments.insert(this->arguments.end(), member);
+	this->arguments.insert(this->arguments.end(), arg);
 }
 
-vector<Argument> Operation::getArguments() {
-	return this->arguments;
+bool Operation::validateArgs() {
+	for (int i = 0; i < this->arguments.size(); i++) {
+		if (this->arguments[i] < 0) {
+			return false;
+		}
+	}
+
+	return true;
 }

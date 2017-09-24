@@ -12,8 +12,7 @@
 
 class CylinderCapacity: public Operation {
 	int getArgsCount();
-	bool validateArgs();
-	double* calculateResult();
+	double calculateResult();
 };
 
 #endif /* SRC_INCLUDES_CYLINDERCAPACITY_H_ */
