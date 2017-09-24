@@ -10,7 +10,7 @@ $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 all:
-	g++ src/main/main.cpp src/main/Argument.cpp src/main/Operation.cpp src/main/CylinderCapacity.cpp src/main/TriangleSquare.cpp src/main/Purchase.cpp src/main/Visit.cpp src/main/VerstToKm.cpp src/main/PoundsToKg.cpp -o firstLab
+	g++ src/cpp/*.cpp -o firstLab
 
 clean:
 	rm -f $(OBJS) $(TARGET)

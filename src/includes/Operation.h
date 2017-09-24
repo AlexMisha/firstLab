@@ -13,18 +13,16 @@
 
 #include "Argument.h"
 
-using namespace std;
-
 class Operation {
 private:
-	vector<Argument> arguments;
+	std::vector<Argument> arguments;
 protected:
 	double result;
 public:
 	Operation();
 	virtual ~Operation();
 
-	vector<Argument> getArguments();
+	std::vector<Argument> getArguments();
 
 	void nextArg();
 	virtual int getArgsCount() = 0;

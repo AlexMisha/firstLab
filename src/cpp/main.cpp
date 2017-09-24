@@ -12,13 +12,13 @@
 #include <fstream>
 #include <string>
 
-#include "CylinderCapacity.cpp"
-#include "TriangleSquare.cpp"
-#include "Visit.cpp"
-#include "Purchase.cpp"
-#include "VerstToKm.cpp"
-#include "PoundsToKg.cpp"
-#include "../headers/Operation.h"
+#include "../includes/TriangleSquare.h"
+#include "../includes/Visit.h"
+#include "../includes/VerstToKm.h"
+#include "../includes/PoundsToKg.h"
+#include "../includes/CylinderCapacity.h"
+#include "../includes/Purchase.h"
+#include "../includes/Operation.h"
 
 using namespace std;
 

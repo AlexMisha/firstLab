@@ -10,8 +10,6 @@
 
 #include <string>
 
-using namespace std;
-
 class Argument {
 private:
 	double value;
