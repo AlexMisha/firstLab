@@ -20,9 +20,7 @@ public:
 	virtual ~Argument();
 
 	double getValue();
-
-	bool valid(int validationCode);
+	void setValue(double value);
 };
-
 
 #endif /* SRC_MAIN_ARGUMENT_H_ */

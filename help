@@ -1,9 +1,0 @@
-Usage: firstLab {-operation}
-Operations:
-	-h -? Help function
-	-c CylinderCapacity
-	-t TriangleSquare
-	-p Purchase
-	-v Visit
-	-m VerstToKm
-	-k PoundsToKg

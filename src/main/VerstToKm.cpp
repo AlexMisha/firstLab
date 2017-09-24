@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "Operation.h"
+#include "../headers/Operation.h"
 
 using namespace std;
 
@@ -17,8 +17,9 @@ public:
 		return true;
 	}
 
-	double calculateResult() {
-		return this->getArguments()[0].getValue() * 1.0668;
+	double* calculateResult() {
+		result = this->getArguments()[0].getValue() * 1.0668;
+		return &result;
 	}
 
 	int getArgsCount() {

@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "Operation.h"
+#include "../headers/Operation.h"
 
 using namespace std;
 
@@ -27,19 +27,23 @@ public:
 		return true;
 	}
 
-	double calculateResult() {
+	double* calculateResult() {
 		if (!validateArgs()) {
 			cout
 					<< "Arguments must not be less than null and second argument must not be equal to zero"
 					<< endl;
-			return NULL;
+			return nullptr;
 		}
 
-	return (this->getArguments()[0].getValue() * (this->getArguments()[1].getValue() / 100.0)) * this->getArguments()[2].getValue();
-}
+		result = (this->getArguments()[0].getValue()
+				* (this->getArguments()[1].getValue() / 100.0))
+				* this->getArguments()[2].getValue();
 
-int getArgsCount() {
-	return 3;
-}
+		return &result;
+	}
+
+	int getArgsCount() {
+		return 3;
+	}
 };
 

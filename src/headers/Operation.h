@@ -18,6 +18,7 @@ using namespace std;
 class Operation {
 private:
 	vector<Argument> arguments;
+protected:
 	double result;
 public:
 	Operation();
@@ -29,7 +30,7 @@ public:
 	virtual int getArgsCount() = 0;
 
 	virtual bool validateArgs() = 0;
-	virtual double calculateResult() = 0;
+	virtual double* calculateResult() = 0;
 };
 
 #endif /* SRC_MAIN_OPERATION_H_ */
