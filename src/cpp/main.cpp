@@ -66,15 +66,18 @@ int main(int argc, char *argv[]) {
 		operation->nextArg();
 	}
 
+	int resultCode = EXIT_SUCCESS;
+
 	try {
 		result = operation->calculateResult();
 		cout << "Result is " << result << endl;
 	} catch (char const* error) {
 		cout << error << endl;
+		resultCode = EXIT_FAILURE;
 	}
 
 	delete operation;
-	return EXIT_SUCCESS;
+	return resultCode;
 }
 
 void printHelp() {
