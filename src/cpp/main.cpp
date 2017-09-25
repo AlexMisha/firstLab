@@ -26,6 +26,7 @@ void printHelp();
 
 int main(int argc, char *argv[]) {
 	const char *Options = "h?ctpvmk";
+	string measure;
 
 	double result;
 
@@ -40,21 +41,27 @@ int main(int argc, char *argv[]) {
 		}
 		if (c == 'c') {
 			operation = new CylinderCapacity();
+			measure = "meters^3";
 		}
 		if (c == 't') {
 			operation = new TriangleSquare();
+			measure = "meters^2";
 		}
 		if (c == 'p') {
 			operation = new Purchase();
+			measure = "rubles";
 		}
 		if (c == 'v') {
 			operation = new Visit();
+			measure = "rubles";
 		}
 		if (c == 'm') {
 			operation = new VerstToKm();
+			measure = "km";
 		}
 		if (c == 'k') {
 			operation = new PoundsToKg();
+			measure = "kg";
 		}
 	} else {
 		cout << "No operation was selected" << endl
@@ -70,7 +77,7 @@ int main(int argc, char *argv[]) {
 
 	try {
 		result = operation->calculateResult();
-		cout << "Result is " << result << endl;
+		cout << "Result is " << result << " " << measure << endl;
 	} catch (char const* error) {
 		cout << error << endl;
 		resultCode = EXIT_FAILURE;

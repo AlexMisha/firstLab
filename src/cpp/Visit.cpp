@@ -30,7 +30,7 @@ double Visit::calculateResult() {
 		throw "Arguments must not be less than null and second argument must not be equal to zero";
 	}
 
-	return (this->arguments[0] * (this->arguments[1] / 100.0))
+	return (this->arguments[0] * 2 * (this->arguments[1] / 100.0))
 			* this->arguments[2];
 }
 
